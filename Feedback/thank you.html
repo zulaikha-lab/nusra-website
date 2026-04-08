@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You</title>
+  <style>
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      background: linear-gradient(135deg, #a56cc1, #6a0dad, #8e44ad, #9b59b6);
+      background-size: 400% 400%;
+      animation: gradientShift 12s ease infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      color: #fff;
+    }
+    .message {
+      background: rgba(255,255,255,0.1);
+      padding: 40px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      animation: fadeInUp 1.5s ease forwards;
+      opacity: 0;
+      transform: translateY(30px);
+      z-index: 10;
+    }
+    h1 {
+      font-size: 2.4em;
+      margin-bottom: 15px;
+      animation: pulse 2s infinite;
+    }
+    p {
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+    .quote {
+      font-style: italic;
+      font-size: 1em;
+      margin-bottom: 25px;
+      color: #ffe6ff;
+    }
+    a {
+      display: inline-block;
+      padding: 12px 20px;
+      background: #fff;
+      color: #6a0dad;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+    a:hover {
+      background: #eee;
+      transform: scale(1.05) rotate(-2deg);
+    }
+
+body::after {
+  content: "NUSRA";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18em;   /* Bigger size — adjust as needed */
+  font-weight: 900;  /* Bold for strong branding */
+  color: rgba(255,255,255,0.05); /* Very light so it doesn’t overpower */
+  z-index: 1;
+  pointer-events: none;
+  animation: brandGlow 6s ease-in-out infinite;
+}
+
+@keyframes brandGlow {
+  0% { text-shadow: 0 0 20px rgba(255,255,255,0.2); }
+  50% { text-shadow: 0 0 60px rgba(255,255,255,0.4); }
+  100% { text-shadow: 0 0 20px rgba(255,255,255,0.2); }
+}
+@keyframes brandGlow {
+  0% { text-shadow: 0 0 10px rgba(255,255,255,0.2); }
+  50% { text-shadow: 0 0 30px rgba(255,255,255,0.4); }
+  100% { text-shadow: 0 0 10px rgba(255,255,255,0.2); }
+}
+
+body::after {
+  /* same as above */
+  animation: brandGlow 6s ease-in-out infinite;
+}
+
+    /* Confetti */
+    .confetti {
+      position: absolute;
+      animation: fall 6s linear infinite;
+      opacity: 0.9;
+    }
+    .square { width: 10px; height: 10px; }
+    .circle { width: 12px; height: 12px; border-radius: 50%; }
+    .triangle {
+      width: 0; height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-bottom: 12px solid;
+    }
+    .pink { background: #ff99cc; border-bottom-color: #ff99cc; }
+    .yellow { background: #ffd700; border-bottom-color: #ffd700; }
+    .cyan { background: #00ffcc; border-bottom-color: #00ffcc; }
+    .white { background: #fff; border-bottom-color: #fff; }
+    @keyframes fall {
+      0% { transform: translateY(-100vh) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+    /* Sparkles */
+    .sparkle {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: #fff;
+      border-radius: 50%;
+      opacity: 0;
+      animation: twinkle 3s infinite;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0; transform: scale(0.5); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+    /* Other animations */
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Confetti -->
+  <div class="confetti square pink" style="left:5%; animation-delay:0s;"></div>
+  <div class="confetti circle yellow" style="left:15%; animation-delay:1s;"></div>
+  <div class="confetti triangle cyan" style="left:25%; animation-delay:2s;"></div>
+  <div class="confetti square white" style="left:35%; animation-delay:3s;"></div>
+  <div class="confetti circle pink" style="left:45%; animation-delay:4s;"></div>
+  <div class="confetti triangle yellow" style="left:55%; animation-delay:1.5s;"></div>
+  <div class="confetti square cyan" style="left:65%; animation-delay:2.5s;"></div>
+  <div class="confetti circle white" style="left:75%; animation-delay:3.5s;"></div>
+  <div class="confetti triangle pink" style="left:85%; animation-delay:4.5s;"></div>
+  <div class="confetti square yellow" style="left:95%; animation-delay:5s;"></div>
+
+  <!-- Sparkles -->
+  <div class="sparkle" style="top:10%; left:20%; animation-delay:0s;"></div>
+  <div class="sparkle" style="top:30%; left:40%; animation-delay:1s;"></div>
+  <div class="sparkle" style="top:50%; left:60%; animation-delay:2s;"></div>
+  <div class="sparkle" style="top:70%; left:30%; animation-delay:1.5s;"></div>
+  <div class="sparkle" style="top:80%; left:80%; animation-delay:2.5s;"></div>
+  <div class="sparkle" style="top:20%; left:70%; animation-delay:3s;"></div>
+  <div class="sparkle" style="top:60%; left:10%; animation-delay:4s;"></div>
+
+  <div class="message">
+    <h1>🎉 Thank You!</h1>
+    <p>Your feedback has been submitted successfully.<br>You rock for helping us improve!</p>
+    <p class="quote">✨ Keep shining — your opinion matters and makes a difference! ✨</p>
+    <a href="feedback.html">⬅ 📚 Go Back to Feedback Form</a>
+  </div>
+
+</body>
+</html>

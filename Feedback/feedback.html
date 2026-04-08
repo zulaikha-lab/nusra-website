@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback Form</title>
+  <!-- Elegant serif font for cinematic aesthetic -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; font-family: 'Cinzel', serif; }
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #3b2c35 0%, #764ba2 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* NUSRA watermark */
+    body::before {
+      content: "NUSRA";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-15deg);
+      font-size: 12vw;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.08);
+      letter-spacing: 12px;
+      z-index: 0;
+      white-space: nowrap;
+    }
+
+    .feedback-container {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 20px;
+      width: 400px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      text-align: center;
+      color: #fff;
+      position: relative;
+      z-index: 1;
+    }
+
+    h2 { font-size: 28px; margin-bottom: 30px; }
+    label { display: block; margin-bottom: 8px; font-size: 14px; text-align: left; }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 12px 15px;
+      border-radius: 8px;
+      border: none;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      outline: none;
+      transition: 0.3s;
+      margin-bottom: 20px;
+    }
+    input:focus, textarea:focus, select:focus { background: rgba(255, 255, 255, 0.2); }
+    input::placeholder, textarea::placeholder { color: rgba(255, 255, 255, 0.7); }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: none;
+      background: #fff;
+      color: #764ba2;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    button:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+  </style>
+</head>
+<body>
+  <div class="feedback-container">
+    <form action="thank you.html" method="post">
+    <h2>We Value Your Feedback</h2>
+    <form>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Your name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Your email" required>
+
+      <label for="rating">Rating</label>
+      <select id="rating" name="rating">
+        <option value="5">Excellent</option>
+        <option value="4">Good</option>
+        <option value="3">Average</option>
+        <option value="2">Poor</option>
+        <option value="1">Very Poor</option>
+      </select>
+
+      <label for="comments">Comments</label>
+      <textarea id="comments" name="comments" rows="4" placeholder="Share your thoughts..."></textarea>
+
+      <button type="submit">Submit Feedback</button>
+    </form>
+  </div>
+<!-- Vertical Ribbon Back Button -->
+<a href="main.html" class="ribbon-btn">🏠 Back to Main Page</a>
+
+<style>
+.ribbon-btn {
+  position: fixed;       /* fixed to the browser window */
+  top: 50%;              /* vertically centered */
+  left: 0;               /* stick to the very left edge */
+  transform: translateY(-50%);
+  writing-mode: vertical-rl; /* vertical text */
+  text-orientation: mixed;
+  background: linear-gradient(180deg, #6a11cb, #2575fc); /* purple-blue ribbon */
+  color: #fff;
+  padding: 20px 10px;
+  border-radius: 0 12px 12px 0; /* rounded right edge only */
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 2px 4px 12px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  z-index: 9999;         /* ensures it stays above everything */
+}
+
+.ribbon-btn:hover {
+  background: linear-gradient(180deg, #2575fc, #6a11cb);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 4px 6px 18px rgba(0,0,0,0.4);
+}
+</style>
+
+</body>
+</html>

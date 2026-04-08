@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NUSRA Help Device</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+}
+
+body {
+    background: linear-gradient(135deg, #4c1d95, #1e3a8a, #14532d);
+    background-size: 300% 300%;
+    animation: gradientMove 10s ease infinite;
+    color: white;
+
+    opacity: 0;
+    animation: fadeIn 0.5s forwards, gradientMove 10s ease infinite;
+}
+
+@keyframes fadeIn {
+    to { 
+        opacity: 1; }
+}
+
+@keyframes gradientMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* HAMBURGER */
+.menu-btn {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    cursor: pointer;
+    z-index: 1000;
+}
+.menu-btn span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 5px;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    padding-top: 80px;
+    transition: 0.4s;
+}
+.menu a {
+    display: block;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+}
+.menu.active { right: 0; }
+
+.logo {
+    display: block;
+    margin: 60px auto 20px;
+    width: 120px;
+    animation: float 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 10px #c084fc);
+}
+
+@keyframes float {
+    0%,100% {transform: translateY(0);}
+    50% {transform: translateY(-10px);}
+}
+
+/* TITLE */
+h1 {
+    text-align: center;
+}
+
+.center {
+    text-align: center;
+}
+
+/* DEVICE BUTTON */
+.devices {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.devices button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    transition: 0.3s;
+}
+
+.devices button:hover {
+    transform: scale(1.1);
+    background: #9333ea;
+    box-shadow: 0 0 15px #9333ea;
+}
+/* STEPS */
+.steps {
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+.step {
+    background: rgba(255,255,255,0.12);
+    padding: 15px;
+    margin: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.step:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 0 15px rgba(255,255,255,0.3);
+}
+/* DETAIL BOX */
+.detail {
+    display: none;
+    background: rgba(0,0,0,0.3);
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+.shapes::before,
+.shapes::after {
+    content: "";
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    background: rgba(147,51,234,0.2);
+    border-radius: 50%;
+    filter: blur(100px);
+    animation: moveShape 10s infinite alternate;
+}
+
+.shapes::after {
+    background: rgba(34,197,94,0.2);
+    left: 70%;
+    top: 50%;
+}
+
+.shapes::before {
+    left: 10%;
+    top: 20%;
+}
+
+@keyframes moveShape {
+    from {transform: translateY(0);}
+    to {transform: translateY(50px);}
+}
+
+/* FADE TRANSITION */
+body {
+  transition: opacity 0.3s ease;
+}
+
+body.fade-out {
+  opacity: 0;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- MENU -->
+<div class="menu-btn" id="menuBtn">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<div class="menu" id="menu">
+    <a href="index.html">Home</a>
+    <a href="login.html">Login</a>
+</div>
+
+<!-- LOGO -->
+<img src="images/logonusra.png" class="logo">
+
+<h1>PANDUAN PERANTI ANDA 🔧</h1>
+<p class="center">Pilih jenis device dahulu</p>
+
+<!-- DEVICE SELECT -->
+<div class="devices">
+    <button onclick="selectDevice('phone')">📱 Phone</button>
+    <button onclick="selectDevice('laptop')">💻 Laptop</button>
+    <button onclick="selectDevice('tablet')">📲 Tablet</button>
+</div>
+
+<!-- STEPS -->
+<div class="steps" id="steps"></div>
+
+<script>
+
+/* MENU */
+document.getElementById("menuBtn").onclick = () => {
+    document.getElementById("menu").classList.toggle("active");
+}
+
+/* DATA SYSTEM */
+const data = {
+     phone: [
+        {
+            title: "Bateri cepat habis",
+            cause: "Aplikasi berjalan di background atau bateri sudah lama.",
+            solution: `
+                1. Kurangkan brightness<br>
+                2. Tutup app background<br>
+                3. Aktifkan battery saver<br>
+                4. Restart phone
+            `,
+            warning: "Jika masih cepat habis selepas semua langkah.",
+            shop: "Kemungkinan bateri rosak. Tukar bateri di kedai."
+        },
+        {
+            title: "Phone panas",
+            cause: "Gaming lama atau cas terlalu lama.",
+            solution: `
+                1. Hentikan penggunaan<br>
+                2. Matikan phone<br>
+                3. Tanggalkan casing<br>
+                4. Elakkan guna semasa charging
+            `,
+            warning: "Jika masih panas walaupun idle.",
+            shop: "Masalah hardware. Hantar kedai."
+        }
+    ],
+
+   laptop: [
+        {
+            title: "Laptop slow",
+            cause: "Terlalu banyak software atau RAM tidak cukup.",
+            solution: `
+                1. Tutup aplikasi tidak perlu<br>
+                2. Delete file tidak penting<br>
+                3. Restart laptop<br>
+                4. Scan virus
+            `,
+            warning: "Jika masih slow selepas semua langkah.",
+            shop: "Mungkin perlu upgrade RAM atau tukar SSD."
+        },
+        {
+            title: "Laptop terlalu panas",
+            cause: "Kipas kotor atau airflow terhalang.",
+            solution: `
+                1. Gunakan di tempat rata<br>
+                2. Bersihkan kipas<br>
+                3. Gunakan cooling pad<br>
+                4. Tutup aplikasi berat
+            `,
+            warning: "Jika suhu masih tinggi.",
+            shop: "Perlu servis dalaman di kedai."
+        },
+        {
+            title: "Laptop tidak bolleh on.",
+            cause: "Masalah bateri atau charger.",
+            solution: `
+                1. Periksa charger<br>
+                2. Cuba plug lain<br>
+                3. Tekan butang power 10 saat
+            `,
+            warning: "Jika masih tak hidup.",
+            shop: "Kemungkinan motherboard rosak."
+        }
+    ],
+
+    tablet: [
+        {
+            title: "Tablet lag",
+            cause: "RAM kecil atau terlalu banyak app.",
+            solution: `
+                1. Tutup app background<br>
+                2. Restart tablet<br>
+                3. Kurangkan widget
+            `,
+            warning: "Jika masih lag.",
+            shop: "Mungkin perlu reset atau upgrade device."
+        },
+        {
+            title: "Touch tidak respon",
+            cause: "Screen kotor atau software error.",
+            solution: `
+                1. Bersihkan screen<br>
+                2. Restart tablet<br>
+                3. Buang screen protector
+            `,
+            warning: "Jika masih tak respon.",
+            shop: "Kemungkinan LCD rosak."
+        },
+        {
+            title: "Tablet tidak boleh cas",
+            cause: "Kabel rosak atau port kotor.",
+            solution: `
+                1. Tukar kabel<br>
+                2. Bersihkan port<br>
+                3. Cuba charger lain
+            `,
+            warning: "Jika masih tak cas.",
+            shop: "Masalah port atau bateri."
+        }
+    ]
+
+};
+
+function selectDevice(type) {
+    const stepsDiv = document.getElementById("steps");
+    stepsDiv.innerHTML = "";
+
+    data[type].forEach((item) => {
+        const step = document.createElement("div");
+        step.className = "step";
+
+        step.innerHTML = `
+            <h3>${item.title}</h3>
+            <div class="detail">
+                <p><b>🧠 Punca:</b><br>${item.cause}</p><br>
+                <p><b>🔧 Cara Selesaikan:</b><br>${item.solution}</p><br>
+                <p><b>⚠️ Jika masih bermasalah:</b><br>${item.warning}</p><br>
+                <p><b>🏪 Cadangan:</b><br>${item.shop}</p>
+            </div>
+        `;
+
+        step.onclick = () => {
+            const detail = step.querySelector(".detail");
+            detail.style.display =
+                detail.style.display === "block" ? "none" : "block";
+        };
+
+        stepsDiv.appendChild(step);
+    });
+}
+
+</script>
+
+<script>
+document.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", function(e) {
+    const href = this.getAttribute("href");
+
+    if (href && !href.startsWith("#")) {
+      e.preventDefault();
+      document.body.classList.add("fade-out");
+
+      setTimeout(() => {
+        window.location.href = href;
+      }, 300);
+    }
+  });
+});
+</script>
+
+</body>
+</html>

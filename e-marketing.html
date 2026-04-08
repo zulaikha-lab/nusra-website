@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NUSRA Store</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #8e0e52, #2e004f);
+    color: white;
+}
+
+/* ===== HERO ===== */
+.hero {
+    text-align: center;
+    padding: 80px 20px 40px;
+}
+
+.hero h1 {
+    font-size: 32px;
+}
+
+.hero p {
+    color: #ddd;
+    max-width: 400px;
+    margin: auto;
+}
+
+/* ===== PRODUCTS ===== */
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.card {
+    background: rgba(255,255,255,0.05);
+    margin: 15px;
+    padding: 20px;
+    border-radius: 15px;
+    width: 200px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card h3 {
+    margin: 10px 0 5px;
+}
+
+.card p {
+    font-size: 14px;
+    color: #ccc;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+    padding: 8px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.cart {
+    background: #6a0dad;
+    color: white;
+}
+
+.chat {
+    background: #ff4da6;
+    color: white;
+}
+
+/* ===== CTA ===== */
+.cta {
+    text-align: center;
+    padding: 40px;
+}
+
+.cta p {
+    color: #ccc;
+}
+
+/* ===== FLOATING CHAT ICON ===== */
+.chatbox {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #ff4da6;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<body>
+
+<a href="index.html" style="position:absolute; top:20px; left:20px; color:white;">
+← Back
+</a>
+
+<!-- HERO -->
+<div class="hero">
+    <h1>Upgrade Your Tech, Student Style</h1>
+    <p>Affordable repair services and accessories made for students. Fast, reliable and easy.</p>
+</div>
+
+<!-- PRODUCTS (ARIYANA PUNYA PART MASUK SINI) -->
+<div class="products">
+
+    <div class="card">
+        <img src="https://via.placeholder.com/200">
+        <h3>Phone Screen Repair</h3>
+        <p>Fix cracked screens quickly</p>
+        <button class="btn cart">Add to Cart</button>
+        <button class="btn chat">Contact Seller</button>
+    </div>
+
+    <div class="card">
+        <img src="https://via.placeholder.com/200">
+        <h3>Battery Replacement</h3>
+        <p>Longer battery life</p>
+        <button class="btn cart">Add to Cart</button>
+        <button class="btn chat">Contact Seller</button>
+    </div>
+
+    <div class="card">
+        <img src="https://via.placeholder.com/200">
+        <h3>Earphones</h3>
+        <p>Clear sound for study</p>
+        <button class="btn cart">Add to Cart</button>
+        <button class="btn chat">Contact Seller</button>
+    </div>
+
+</div>
+
+<!-- CTA -->
+<div class="cta">
+    <h2>Need help with your device?</h2>
+    <p>Use our smart diagnosis to find the best solution.</p>
+</div>
+
+<!-- FLOAT CHAT ICON -->
+<div class="chatbox" onclick="alert('Chat feature coming soon!')">
+💬
+</div>
+
+<script>
+document.querySelectorAll(".cart").forEach(btn => {
+  btn.onclick = () => alert("Added to cart!");
+});
+
+document.querySelectorAll(".chat").forEach(btn => {
+  btn.onclick = () => alert("Opening chat with seller...");
+});
+</script>
+
+</body>
+</html>

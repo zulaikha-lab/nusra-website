@@ -1,29 +1,428 @@
 <!DOCTYPE html>
-<html>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+<html lang="en">
 <head>
-    <title>Smart Campus</title>
+<meta charset="UTF-8">
+<title>NUSRA</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #f6f3ff;
+  transition: opacity 0.3s ease;
+}
+
+body.fade-out {
+    opacity: 0;
+}
+/* NAVBAR */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+}
+
+/* LOGO */
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    animation: glow 2s infinite alternate, float 4s ease-in-out infinite;
+}
+
+.logo { 
+    width: 130px;
+    animation: float 4s ease-in-out infinite, glow 2s ease-in-out infinite alternate;
+    }
+
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+
+nav a i {
+  font-size: 16px;
+}
+
+nav a:hover i {
+  color: #d1b3ff;
+}
+
+.login-btn {
+  background: #a66cff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  
+}
+.login-btn:hover {
+  background: #8b4ee0;
+  transform: scale(1.05);
+}
+
+/* LOGO IMAGE */
+.logo img {
+  width: 120px;
+  animation: float 4s ease-in-out infinite, glow 2s infinite alternate;
+}
+
+/* SEARCH BOX */
+.search-box {
+  position: absolute;
+  top: 70px;
+  right: 60px;
+  background: white;
+  padding: 10px 15px;
+  border-radius: 10px;
+  display: none;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+}
+
+/* FILTER BOX */
+.filter-box {
+  position: absolute;
+  top: 70px;
+  right: 120px;
+  background: white;
+  padding: 15px;
+  border-radius: 12px;
+  display: none;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  color: black;
+  width: 180px;
+}
+
+.filter-box h4 {
+  margin-bottom: 10px;
+}
+
+.filter-box label {
+  display: block;
+  margin: 5px 0;
+}
+
+.filter-box button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 8px;
+  background: #a66cff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.filter-box button:hover {
+  background: #8b4ee0;
+}
+
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)),
+              url('images/cover.jpeg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 50px;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+}
+
+.hero p {
+  margin-top: 10px;
+  font-size: 18px;
+  text-shadow: 1px 1px 8px rgba(0,0,0,0.7);
+}
+
+/* PROMO */
+.promo {
+  padding: 80px 20px;
+  text-align: center;
+  background: #ffffff;
+}
+
+.promo h2 {
+  color: #6a0dad;
+  font-size: 30px;
+}
+
+.promo p {
+  margin-top: 15px;
+  color: #555;
+  font-size: 16px;
+}
+
+/* INTRO SECTION */
+.intro {
+  background: linear-gradient(135deg, #6a0dad, #a66cff);
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.intro-container {
+  max-width: 700px;
+  margin: auto;
+}
+
+.intro h2 {
+  font-size: 28px;
+  margin-top: 20px;
+}
+
+.intro p {
+  margin-top: 15px;
+  line-height: 1.6;
+}
+
+.intro-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 30px;
+  background: white;
+  color: #6a0dad;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.intro-btn:hover {
+  transform: scale(1.1);
+  background: #eee;
+}
+
+/* FADE ON SCROLL */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(80px);
+  transition: all 1s ease;
+}
+
+/* FOOTER */
+footer {
+  background: #4b2e83;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+#searchResults {
+  margin-top: 10px;
+}
+
+.result-item {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.result-item:hover {
+  background: #f3e8ff;
+}
+
+</style>
+
 </head>
 
 <body>
 
-    <h1>Welcome to Smart Campus</h1>
-    <p>Website pertama aku 🚀</p>
-    <input type="text" id="searchInput" placeholder="Search item...">
-
-<select id="categoryFilter">
-  <option value="all">All</option>
-  <option value="laptop">Laptop</option>
-  <option value="phone">Phone</option>
-  <option value="others">Others</option>
-</select>
-
-<div id="itemList">
-  <div class="item" data-name="laptop dell" data-category="laptop">Laptop Dell</div>
-  <div class="item" data-name="iphone 11" data-category="phone">iPhone 11</div>
-  <div class="item" data-name="calculator" data-category="others">Calculator</div>
+<header>
+  <div class="logo">
+  <img src="images/logonusra.png" alt="NUSRA Logo">
 </div>
+
+  <nav>
+    <a href="e-marketing.html">Market</a>
+    <a href="help-device.html">Help Device</a>
+
+    <!-- Search -->
+    <a href="#" id="search-btn">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </a>
+
+    <!-- Filter -->
+    <a href="#" id="filter-btn">
+      <i class="fa-solid fa-sliders"></i>
+    </a>
+
+  <a href="login.html" class="login-btn">Login</a>  
+  </nav>
+</header>
+
+<!-- SEARCH BOX -->
+<div class="search-box" id="search-box">
+  <input type="text" id="searchInput" placeholder="Search items...">
+  <div id="searchResults"></div>
+</div>
+
+<!-- FILTER BOX (LETak SINI) -->
+<div class="filter-box" id="filter-box">
+  <h4>Filter Category</h4>
+
+  <label><input type="checkbox" value="laptop"> Laptop</label>
+  <label><input type="checkbox" value="phone"> Phone</label>
+  <label><input type="checkbox" value="others"> Others</label>
+
+  <button onclick="applyFilter()">Apply</button>
+</div>
+
+<section class="hero">
+  <h1 class="reveal">Welcome to NUSRA</h1>
+  <p>Platform jual beli barangan terpakai & penyelesaian masalah device.</p>
+</section>
+
+<!-- INTRO SECTION -->
+<section class="intro reveal">
+  <div class="intro-container">
+
+    <div class="logo">
+      <img src="images/logonusra.png" alt="NUSRA Logo">
+    </div>
+
+    <h2>SOKONGAN DIGITAL. DARI PELAJAR, UNTUK PELAJAR.</h2>
+
+    <p>
+      Nusra menyatukan pusat jual beli dan bantuan teknikal pantas 
+      dalam satu platform berpusat. Lestarikan barangan terpakai, 
+      pulihkan peranti anda.
+    </p>
+
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 NUSRA</p>
+</footer>
+
+<!-- SCRIPT -->
+<script>
+const searchBtn = document.getElementById("search-btn");
+const searchBox = document.getElementById("search-box");
+
+searchBtn.addEventListener("click", function(e) {
+  e.preventDefault();
+  searchBox.style.display =
+    searchBox.style.display === "block" ? "none" : "block";
+});
+
+// FAKE DATABASE (boleh tambah lagi nanti)
+const items = [
+  "Laptop Dell",
+  "iPhone 11",
+  "Calculator Casio",
+  "Gaming Mouse",
+  "Keyboard Mechanical"
+];
+
+const searchInput = document.getElementById("searchInput");
+const resultsBox = document.getElementById("searchResults");
+
+// LIVE SEARCH
+searchInput.addEventListener("input", function() {
+  const query = searchInput.value.toLowerCase();
+  resultsBox.innerHTML = "";
+
+  if (query === "") return;
+
+  const filtered = items.filter(item =>
+    item.toLowerCase().includes(query)
+  );
+
+  filtered.forEach(item => {
+    const div = document.createElement("div");
+    div.classList.add("result-item");
+    div.textContent = item;
+
+    div.onclick = () => {
+      searchInput.value = item;
+      resultsBox.innerHTML = "";
+    };
+
+    resultsBox.appendChild(div);
+  });
+});
+
+// TOGGLE FILTER BOX
+const filterBtn = document.getElementById("filter-btn");
+const filterBox = document.getElementById("filter-box");
+
+filterBtn.addEventListener("click", function(e) {
+  e.preventDefault();
+  filterBox.style.display =
+    filterBox.style.display === "block" ? "none" : "block";
+});
+
+// FADE ON SCROLL FUNCTION
+function revealOnScroll() {
+  const reveals = document.querySelectorAll(".reveal");
+
+  reveals.forEach(el => {
+    const windowHeight = window.innerHeight;
+    const elementTop = el.getBoundingClientRect().top;
+    const visiblePoint = 100;
+
+    if (elementTop < windowHeight - visiblePoint) {
+      el.classList.add("active");
+    }
+  });
+}
+
+</script>
+
+<script>
+document.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", function(e) {
+    const href = this.getAttribute("href");
+
+    if (href && !href.startsWith("#")) {
+      e.preventDefault();
+      document.body.classList.add("fade-out");
+
+      setTimeout(() => {
+        window.location.href = href;
+      }, 300);
+    }
+  });
+});
+</script>
 
 </body>
 </html>
