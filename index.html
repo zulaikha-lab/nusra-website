@@ -222,18 +222,12 @@ nav a:hover i {
 .reveal {
   opacity: 0;
   transform: translateY(50px);
-  transition: 0.8s ease;
+  transition: all 0.8s ease;
 }
 
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(80px);
-  transition: all 1s ease;
 }
 
 /* FOOTER */
@@ -404,6 +398,9 @@ function revealOnScroll() {
     }
   });
 }
+
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("load", revealOnScroll);
 
 </script>
 
