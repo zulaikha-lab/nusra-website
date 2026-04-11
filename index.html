@@ -299,7 +299,7 @@ footer {
 </div>
 
 <section class="hero">
-  <h1 class="reveal">Welcome to NUSRA</h1>
+  <h1 class="reveal">Selamat Datang Ke NUSRA</h1>
   <p>Platform jual beli barangan terpakai & penyelesaian masalah device.</p>
 </section>
 
@@ -372,6 +372,16 @@ searchInput.addEventListener("input", function() {
 
     resultsBox.appendChild(div);
   });
+
+  const user = localStorage.getItem("user");
+
+if (user) {
+  document.querySelector(".login-btn").textContent = "Logout (" + user + ")";
+  document.querySelector(".login-btn").onclick = function() {
+    localStorage.removeItem("user");
+    location.reload();
+  };
+}
 });
 
 // TOGGLE FILTER BOX
@@ -419,6 +429,31 @@ document.querySelectorAll("a").forEach(link => {
     }
   });
 });
+</script>
+
+<script>
+function loginUser(e) {
+  e.preventDefault();
+
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+
+  // CONDITION LOGIN (BONUS)
+  if (username === "admin" && password === "1234") {
+    
+    // ALERT (BONUS)
+    alert("Welcome " + username + "!");
+
+    // SIMPAN USER
+    localStorage.setItem("user", username);
+
+    // REDIRECT
+    window.location.href = "index.html";
+
+  } else {
+    alert("Wrong username or password!");
+  }
+}
 </script>
 
 </body>

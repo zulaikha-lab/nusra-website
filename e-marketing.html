@@ -3,177 +3,217 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NUSRA Store</title>
+<title>NUSRA - Preloved Marketplace</title>
 
 <style>
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(135deg, #8e0e52, #2e004f);
+    font-family: Arial, sans-serif;
+    background-color: #f5f0ff;
+}
+
+/* HEADER */
+header {
+    background: linear-gradient(90deg, #6a0dad, #9b59b6);
     color: white;
-}
-
-/* ===== HERO ===== */
-.hero {
+    padding: 18px;
     text-align: center;
-    padding: 80px 20px 40px;
+    font-size: 26px;
+    font-weight: bold;
 }
 
-.hero h1 {
-    font-size: 32px;
+/* CONTAINER - FULL LEFT ALIGN */
+.container {
+    padding: 20px 10px; /* kiri kanan kecil supaya nampak kemas */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
 }
 
-.hero p {
-    color: #ddd;
-    max-width: 400px;
-    margin: auto;
-}
-
-/* ===== PRODUCTS ===== */
-.products {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 20px;
-}
-
-.card {
-    background: rgba(255,255,255,0.05);
-    margin: 15px;
-    padding: 20px;
-    border-radius: 15px;
-    width: 200px;
-    text-align: center;
-    backdrop-filter: blur(10px);
+/* PRODUCT CARD */
+.product-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
     transition: 0.3s;
+    cursor: pointer;
 }
 
-.card:hover {
-    transform: translateY(-5px);
+.product-card:hover {
+    transform: translateY(-6px);
 }
 
-.card img {
+/* IMAGE */
+.product-card img {
     width: 100%;
-    border-radius: 10px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
 }
 
-.card h3 {
-    margin: 10px 0 5px;
+/* INFO */
+.product-info {
+    padding: 12px;
 }
 
-.card p {
-    font-size: 14px;
-    color: #ccc;
+.product-title {
+    font-size: 15px;
+    font-weight: bold;
+    color: #6a0dad;
+    margin-bottom: 5px;
 }
 
-/* ===== BUTTONS ===== */
-.btn {
-    padding: 8px 15px;
-    margin: 5px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
+.product-price {
+    color: #9b59b6;
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 6px;
 }
 
-.cart {
-    background: #6a0dad;
-    color: white;
+.product-desc {
+    font-size: 12px;
+    color: #555;
 }
 
-.chat {
-    background: #ff4da6;
-    color: white;
+/* REMOVE LINK STYLE */
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
-/* ===== CTA ===== */
-.cta {
-    text-align: center;
-    padding: 40px;
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-.cta p {
-    color: #ccc;
-}
-
-/* ===== FLOATING CHAT ICON ===== */
-.chatbox {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #ff4da6;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 25px;
-    cursor: pointer;
+@media (max-width: 480px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
 }
 </style>
+
 </head>
 
 <body>
 
-<a href="index.html" style="position:absolute; top:20px; left:20px; color:white;">
-← Back
+<header>
+    NUSRA
+</header>
+
+<div class="container">
+
+<!-- 1 -->
+<a href="#">
+    <div class="product-card">
+        <img src="images/shirt.jpeg">
+        <div class="product-info">
+            <div class="product-title">Kemeja</div>
+            <div class="product-price">RM25</div>
+            <div class="product-desc">9/10 Masih elok.</div>
+        </div>
+    </div>
 </a>
 
-<!-- HERO -->
-<div class="hero">
-    <h1>Upgrade Your Tech, Student Style</h1>
-    <p>Affordable repair services and accessories made for students. Fast, reliable and easy.</p>
-</div>
-
-<!-- PRODUCTS (ARIYANA PUNYA PART MASUK SINI) -->
-<div class="products">
-
-    <div class="card">
-        <img src="images/phonescreen.jpeg">
-        <h3>Phone Screen Repair</h3>
-        <p>Fix cracked screens quickly</p>
-        <button class="btn cart">Add to Cart</button>
-        <button class="btn chat">Contact Seller</button>
+<!-- 2 -->
+<a href="#">
+    <div class="product-card">
+        <img src="images/bag.jpeg">
+        <div class="product-info">
+            <div class="product-title">Totebag</div>
+            <div class="product-price">RM15</div>
+            <div class="product-desc">10/10 Condition baik, jarang guna.</div>
+        </div>
     </div>
+</a>
 
-    <div class="card">
-        <img src="images/phonebat.jpeg">
-        <h3>Battery Replacement</h3>
-        <p>Longer battery life</p>
-        <button class="btn cart">Add to Cart</button>
-        <button class="btn chat">Contact Seller</button>
+<!-- 3 -->
+<a href="#">
+    <div class="product-card">
+        <img src="images/calc.jpeg">
+        <div class="product-info">
+            <div class="product-title">Kalkulator</div>
+            <div class="product-price">RM50</div>
+            <div class="product-desc">8/10 Berfungsi dengan baik tetapi terdapat pelekat.</div>
+        </div>
     </div>
+</a>
 
-    <div class="card">
-        <img src="images/earphone.jpeg">
-        <h3>Earphones</h3>
-        <p>Clear sound for study</p>
-        <button class="btn cart">Add to Cart</button>
-        <button class="btn chat">Contact Seller</button>
+<!-- 4 -->
+<a href="#">
+    <div class="product-card">
+        <img src="images/shoerack.jpeg">
+        <div class="product-info">
+            <div class="product-title">Rak kasut</div>
+            <div class="product-price">RM10</div>
+            <div class="product-desc">7/10 Masih beoleh digunakan.</div>
+        </div>
     </div>
+</a>
+
+<!-- 5 -->
+<a href="#">
+    <div class="product-card">
+        <img src="images/nasiayam.jpeg">
+        <div class="product-info">
+            <div class="product-title">Nasi Ayam</div>
+            <div class="product-price">RM6</div>
+            <div class="product-desc">8/10 Dilengkapi dgn ayam bakar madu dan sup serta sayur-sayuran segar.</div>
+        </div>
+    </div>
+</a>
+
+<!-- 6 -->
+<a href="#">
+    <div class="product-card">
+        <img src="images/table.jpeg">
+        <div class="product-info">
+            <div class="product-title">Meja belajar boleh dilipat</div>
+            <div class="product-price">RM10</div>
+            <div class="product-desc">8/10 Terdapat kesan calar pada meja.</div>
+        </div>
+    </div>
+</a>
+
+<!-- 7 -->
+<a href="#">
+    <div class="product-card">
+        <img src="images/ironboard.jpeg">
+        <div class="product-info">
+            <div class="product-title">Papan seterika</div>
+            <div class="product-price">RM20</div>
+            <div class="product-desc">9/10 Kondisi sangat baik.</div>
+        </div>
+    </div>
+</a>
+
+<!-- 8 -->
+<a href="#">
+    <div class="product-card">
+        <img src="images/lamp.jpeg">
+        <div class="product-info">
+            <div class="product-title">Lampu belajar</div>
+            <div class="product-price">RM15</div>
+            <div class="product-desc">8/10 Menggunakan bateri.</div>
+        </div>
+    </div>
+</a>
+
+<!-- 9 -->
+<a href="#">
+    <div class="product-card">
+        <img src="images/strgbox.jpeg">
+        <div class="product-info">
+            <div class="product-title">Kotak penyimpan barang</div>
+            <div class="product-price">RM7</div>
+            <div class="product-desc">7/10 Boleh menyimpan apa sahaja.</div>
+        </div>
+    </div>
+</a>
 
 </div>
-
-<!-- CTA -->
-<div class="cta">
-    <h2>Need help with your device?</h2>
-    <p>Use our smart diagnosis to find the best solution.</p>
-</div>
-
-<!-- FLOAT CHAT ICON -->
-<div class="chatbox" onclick="alert('Chat feature coming soon!')">
-💬
-</div>
-
-<script>
-document.querySelectorAll(".cart").forEach(btn => {
-  btn.onclick = () => alert("Added to cart!");
-});
-
-document.querySelectorAll(".chat").forEach(btn => {
-  btn.onclick = () => alert("Opening chat with seller...");
-});
-</script>
 
 </body>
 </html>

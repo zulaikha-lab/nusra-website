@@ -135,6 +135,26 @@
     <div class="footer-links">
       <a href="#">Forgot Password?</a> | <a href="#">Create Account</a>
     </div>
+    <form onsubmit="loginUser(event)">
+  <input type="text" id="username" placeholder="Username" required>
+  <input type="password" id="password" placeholder="Password" required>
+  <button type="submit">Login</button>
+</form>
   </div>
+
+  <script>
+function loginUser(e) {
+  e.preventDefault();
+
+  const username = document.getElementById("username").value;
+
+  // SIMPAN USER (fake database)
+  localStorage.setItem("user", username);
+
+  // pergi homepage
+  window.location.href = "index.html";
+}
+</script>
+
 </body>
 </html>
